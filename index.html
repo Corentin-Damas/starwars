@@ -67,37 +67,89 @@
       <section class="filmInfo">
         <article class="left">
           <div class="logos">
-            <img src="assets/logo1.png" alt="" />
+            <img class="logo logo-active" src="assets/logo1.png" alt="" />
+            <img class="logo" src="assets/logo2.png" alt="" />
+            <img class="logo" src="assets/logo3.png" alt="" />
           </div>
           <div class="synopsis">
-            <h2>Un nouvel espoir</h2>
-            <p>
-              C'est le premier opus de la saga Star Wars par sa date de sortie,
-              mais le quatrième selon l'ordre chronologique de l'histoire.
-              <br />
-              Poursuivie par un vaisseau de l'Empire galactique, la princesse
-              Leia, essaye d'apporter les plans de l'Étoile noire à la
-              rébellion. Alors qu'elle se fait capturer, elle envoie le droïde
-              R2-D2 sur la planète Tatooine, pour appeler à l'aide l'ancien
-              chevalier Jedi Obi-Wan Kenobi. Sur Tatooine, R2-D2 rencontre le
-              jeune Luke Skywalker, qui décide d'accompagner Obi-Wan, pour
-              sauver la princesse...
-            </p>
+            <div class="titles">
+              <h2 class="film-title title-active">Un nouvel espoir</h2>
+              <h2 class="film-title">L'Empire contre-attaque</h2>
+              <h2 class="film-title">Le Retour du Jedi</h2>
+            </div>
+            <div class="descriptions">
+              <div class="description text-active">
+                <p>
+                  C'est le premier opus de la saga Star Wars par sa date de
+                  sortie, mais le quatrième selon l'ordre chronologique de
+                  l'histoire.
+                  <br />
+                  Poursuivie par un vaisseau de l'Empire galactique, la
+                  princesse Leia, essaye d'apporter les plans de l'Étoile noire
+                  à la rébellion. Alors qu'elle se fait capturer, elle envoie le
+                  droïde R2-D2 sur la planète Tatooine, pour appeler à l'aide
+                  l'ancien chevalier Jedi Obi-Wan Kenobi. Sur Tatooine, R2-D2
+                  rencontre le jeune Luke Skywalker, qui décide d'accompagner
+                  Obi-Wan, pour sauver la princesse...
+                </p>
+              </div>
+              <div>
+                <p class="description">
+                  l'Empire maintient son emprise sur la galaxie, et poursuit
+                  sans relâche sa lutte contre l'Alliance rebelle. Basés sur la
+                  planète glacée de Hoth, les rebelles essuient un assaut des
+                  troupes impériales. Parvenus à s'échapper, la princesse Leia,
+                  Han Solo, Chewbacca et C-3P0 se dirigent vers Bespin, la cité
+                  des nuages gouvernée par Lando Calrissian, ancien compagnon de
+                  Han.
+                </p>
+              </div>
+              <div>
+                <p class="description">
+                  L'empire galactique est plus puissant que jamais : la
+                  construction de la nouvelle arme, l'étoile de la mort, menace
+                  l'univers tout entier... Han Solo est remis à l'ignoble
+                  contrebandier Jabba le Hutt par le chasseur de primes Boba
+                  Fett. après l'échec d'une première tentative d'évasion menée
+                  par la princesse Leia, également arrêtée par Jabba, Luke
+                  Skywalker et Lando parviennent à libérer leurs amis.
+                </p>
+              </div>
+            </div>
           </div>
           <div>
             <h1>1977</h1>
           </div>
         </article>
         <article class="right">
-          <img class="posters" src="assets/poster1977.jpg" alt="" />
+          <div class="posters">
+            <div
+              class="poster"
+              style="background-image: url(assets/poster1977.jpg)"
+            ></div>
+            <div
+              class="poster poster-inactive"
+              style="background-image: url(assets/poster1979.jpg)"
+            ></div>
+            <div
+              class="poster poster-inactive"
+              style="background-image: url(assets/poster1983.jpg)"
+            ></div>
+          </div>
         </article>
       </section>
       <nav>
         <div class="arrows">
-          <span class="material-symbols-outlined left-arrow">arrow_back</span>
-          <span class="material-symbols-outlined right-arrow"
-            >arrow_forward</span
-          >
+          <button class="previous-arrow" disabled>
+            <span class="material-symbols-outlined left-arrow arrow-inactive"
+              >arrow_back</span
+            >
+          </button>
+          <button class="next-arrow">
+            <span class="material-symbols-outlined right-arrow"
+              >arrow_forward</span
+            >
+          </button>
         </div>
         <ul class="stepper">
           <li class="line active">&nbsp;</li>
@@ -109,7 +161,8 @@
       </nav>
     </main>
   </body>
+  <script src="script.js"></script>
 </html>
 
-<!-- l'Empire maintient son emprise sur la galaxie, et poursuit sans relâche sa lutte contre l'Alliance rebelle. Basés sur la planète glacée de Hoth, les rebelles essuient un assaut des troupes impériales. Parvenus à s'échapper, la princesse Leia, Han Solo, Chewbacca et C-3P0 se dirigent vers Bespin, la cité des nuages gouvernée par Lando Calrissian, ancien compagnon de Han. -->
-<!-- L'empire galactique est plus puissant que jamais : la construction de la nouvelle arme, l'étoile de la mort, menace l'univers tout entier... Han Solo est remis à l'ignoble contrebandier Jabba le Hutt par le chasseur de primes Boba Fett. après l'échec d'une première tentative d'évasion menée par la princesse Leia, également arrêtée par Jabba, Luke Skywalker et Lando parviennent à libérer leurs amis.-->
+<!--  1979 -->
+<!-- -->

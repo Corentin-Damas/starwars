@@ -59,7 +59,7 @@ main {
 }
 
 .left {
-  flex: 2;
+  flex: 3;
   /* background-color: red; */
   display: flex;
   flex-direction: column;
@@ -68,8 +68,9 @@ main {
 }
 
 .right {
-  flex: 1;
-  background-color: green;
+  flex: 2;
+  width: auto;
+  min-width: auto;
 }
 
 .logos img {
@@ -77,10 +78,70 @@ main {
   filter: invert(83%) sepia(54%) saturate(433%) hue-rotate(342deg)
     brightness(100%) contrast(93%);
 }
-.right .posters {
+
+.logos {
+  height: 80px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.titles {
+  height: 7rem;
+}
+
+.logos,
+.titles {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo,
+.film-title {
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.descriptions {
+  display: grid;
+  overflow: hidden;
+}
+.descriptions > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.logo:not(.logo-active),
+.film-title:not(.title-active),
+.description:not(.text-active) {
+  opacity: 0.1;
+  transform: translate3d(100%, 0, 0);
+}
+
+.posters {
   aspect-ratio: 2/3;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+
+}
+
+.right .poster {
   width: 100%;
   height: 100%;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  transition: transform 1s ease;
+}
+
+.poster-inactive,
+.logo-inactive {
+  transform: translateX(100%);
 }
 
 nav {
@@ -88,6 +149,7 @@ nav {
   align-items: center;
   justify-content: center;
   width: 100%;
+  transition: transform 1s ease;
 }
 
 .arrows {
@@ -97,8 +159,23 @@ nav {
   justify-content: space-between;
 }
 
-.arrows span {
+.arrows button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+}
+
+
+.arrows button span {
   font-size: 5rem;
+  color: var(--yellow-sw);
+}
+
+.arrows button:disabled{
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .stepper {
@@ -136,17 +213,14 @@ nav {
   height: 1px;
   background-color: var(--yellow-sw);
   opacity: 0.3;
-
 }
-
 
 
 .stepper li.active:first-child::after {
   content: none;
-
 }
 
-.stepper li.active::before{
+.stepper li.active::before {
   opacity: 1;
 }
 
