@@ -28,11 +28,16 @@ prevArrow.addEventListener("click", function () {
 function update() {
   nbsteps.forEach((step, index) => {
     if (index < curentStepper) {
-      step.classList.add("active");
+      if (step.classList.contains("inactive")) {
+        step.classList.remove("inactive")
+        step.classList.add("active");
+      }
     } else {
-      step.classList.remove("active");
-    }
-  });
+        if (step.classList.contains("active")) {
+          step.classList.remove("active")
+          step.classList.add("inactive");
+      }
+  }});
 
   const actives = document.querySelectorAll(".active");
   if (curentStepper == nbsteps.length) {
