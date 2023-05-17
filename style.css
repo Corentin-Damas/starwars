@@ -20,7 +20,7 @@ html {
 
 body {
   font-family: var(--ff-style);
-  font-size: 16px;
+  font-size: 1.6rem;
   background-color: var(--blue-sw);
   color: var(--yellow-sw);
   display: flex;
@@ -57,6 +57,7 @@ main {
 
 .filmInfo {
   display: flex;
+  margin-bottom: 3rem;
 }
 
 .left {
@@ -102,7 +103,7 @@ main {
 .film-title {
   position: absolute;
   transform: translate3d(0, 0, 0);
-  transition: transform 1s ease, opacity 1s ease;
+  transition: transform 1s ease-in-out, opacity 1s ease;
 }
 
 .descriptions {
@@ -120,10 +121,17 @@ main {
 .film-title:not(.title-active),
 .description:not(.text-active) {
   opacity: 0;
-  transform: translate3d(100%, 0, 0);
 }
 
-
+.logo:not(.logo-active) {
+  transform: translate3d(100%, 0, 0);
+}
+.film-title:not(.title-active) {
+  transform: translate3d(8rem, 0, 0);
+}
+.description:not(.text-active) {
+  transform: translate3d(100%, 0, 0);
+}
 
 .posters {
   aspect-ratio: 2/3;
@@ -259,3 +267,50 @@ hr {
   opacity: 0.3;
   transition: all 0.3s ease-in;
 }
+
+.dates {
+  display: flex;
+  position: relative;
+}
+
+.date-part1,
+.date-part2 {
+  display: grid;
+}
+
+.date-part2 {
+  position: absolute;
+  left: 17rem;
+}
+.gap-fix {
+  position: absolute;
+  left: 3rem;
+}
+
+.date-part1 > *,
+.date-part2 > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.date-part2 .date:not(.date-active) {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.date-part1 .date:not(.date-active) {
+  opacity: 0;
+  transform: translate3d(20%, 0, 0);
+}
+/* .descriptions {
+  display: grid;
+  overflow: hidden;
+}
+.descriptions > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s ease, opacity 1s ease;
+} */

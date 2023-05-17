@@ -6,6 +6,10 @@ const nbsteps = document.querySelectorAll(".line");
 const logos = document.querySelectorAll(".logo");
 const titles = document.querySelectorAll(".film-title");
 const descriptions = document.querySelectorAll(".description");
+const posters = document.querySelectorAll(".poster");
+const datesCentuary19 = document.querySelector(".date-centuary-I");
+const datesCentuary20 = document.querySelector(".date-centuary-II");
+const datesDecimales = document.querySelectorAll(".date-decimal");
 
 console.log("helloword!");
 let curentStepper = 1;
@@ -44,49 +48,80 @@ function updateStepper() {
   });
 
   logos.forEach((logo, index) => {
-    if (index == curentStepper-1) {
-      logo.classList.add("logo-active")
-    } 
-    if (index > curentStepper-1) {
-      logo.classList.remove("logo-active")
+    if (index == curentStepper - 1) {
+      logo.classList.add("logo-active");
     }
-    if (index < curentStepper-1) {
-      logo.classList.remove("logo-active")
+    if (index > curentStepper - 1) {
+      logo.classList.remove("logo-active");
+    }
+    if (index < curentStepper - 1) {
+      logo.classList.remove("logo-active");
     }
   });
 
   titles.forEach((title, index) => {
-    if (index == curentStepper-1) {
-      title.classList.add("title-active")
-    } 
-    if (index > curentStepper-1) {
-      title.classList.remove("title-active")
+    if (index == curentStepper - 1) {
+      title.classList.add("title-active");
     }
-    if (index < curentStepper-1) {
-      title.classList.remove("title-active")
+    if (index > curentStepper - 1) {
+      title.classList.remove("title-active");
+    }
+    if (index < curentStepper - 1) {
+      title.classList.remove("title-active");
     }
   });
 
   descriptions.forEach((description, index) => {
-    if (index == curentStepper-1) {
-      description.classList.add("text-active")
-    } 
-    if (index > curentStepper-1) {
-      description.classList.remove("text-active")
+    if (index == curentStepper - 1) {
+      description.classList.add("text-active");
     }
-    if (index < curentStepper-1) {
-      description.classList.remove("text-active")
+
+    if (index == curentStepper - 1) {
+      description.classList.add("text-active");
+    }
+    if (index > curentStepper - 1) {
+      description.classList.remove("text-active");
+    }
+    if (index < curentStepper - 1) {
+      description.classList.remove("text-active");
     }
   });
 
-  // logos.forEach((logo, index) => {
-  //   if (index < curentStepper) {
+  posters.forEach((poster, index) => {
+    if (index < curentStepper) {
+      poster.classList.remove("poster-inactive");
+    } else {
+      poster.classList.add("poster-inactive");
+    }
+  });
 
-  //     logo.classList.add("logo-active");
-  //   } else {
-  //     logo.classList.remove("logo-active");
-  //   }
-  // });
+  datesDecimales.forEach((date, index) => {
+    curentStepper == 5 ? changeCentuary() : pullbackCentuary()
+    if (index == curentStepper - 1) {
+      date.classList.add("date-active");
+      
+    }
+    if (index > curentStepper - 1) {
+      date.classList.remove("date-active");
+    }
+    if (index < curentStepper - 1) {
+      date.classList.remove("date-active");
+    }
+
+    function changeCentuary() {
+      datesCentuary20.classList.toggle("date-active")
+      datesCentuary19.classList.remove("date-active")
+    }
+
+    function pullbackCentuary() {
+      datesCentuary20.classList.remove("date-active")
+      datesCentuary19.classList.add("date-active")
+    }
+  
+  });
+
+
+
 
   const actives = document.querySelectorAll(".active");
   if (curentStepper == nbsteps.length) {
@@ -97,6 +132,7 @@ function updateStepper() {
     nextArrow.disabled = false;
     prevArrow.disabled = false;
   }
+
 }
 
-function updateContent() {}
+
