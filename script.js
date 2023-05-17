@@ -121,8 +121,6 @@ function updateStepper() {
   });
 
 
-
-
   const actives = document.querySelectorAll(".active");
   if (curentStepper == nbsteps.length) {
     nextArrow.disabled = true;
