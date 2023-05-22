@@ -10,8 +10,8 @@ const posters = document.querySelectorAll(".poster");
 const datesCentuary19 = document.querySelector(".date-centuary-I");
 const datesCentuary20 = document.querySelector(".date-centuary-II");
 const datesDecimales = document.querySelectorAll(".date-decimal");
+const movingSlide = document.querySelectorAll("[data-slide]");
 
-console.log("helloword!");
 let curentStepper = 1;
 
 nextArrow.addEventListener("click", function () {
@@ -33,6 +33,8 @@ prevArrow.addEventListener("click", function () {
 });
 
 function updateStepper() {
+  let updateTextElem = [logos, titles, descriptions];
+
   nbsteps.forEach((step, index) => {
     if (index < curentStepper) {
       if (step.classList.contains("inactive")) {
@@ -47,45 +49,20 @@ function updateStepper() {
     }
   });
 
-  logos.forEach((logo, index) => {
-    if (index == curentStepper - 1) {
-      logo.classList.add("logo-active");
-    }
-    if (index > curentStepper - 1) {
-      logo.classList.remove("logo-active");
-    }
-    if (index < curentStepper - 1) {
-      logo.classList.remove("logo-active");
-    }
-  });
-
-  titles.forEach((title, index) => {
-    if (index == curentStepper - 1) {
-      title.classList.add("title-active");
-    }
-    if (index > curentStepper - 1) {
-      title.classList.remove("title-active");
-    }
-    if (index < curentStepper - 1) {
-      title.classList.remove("title-active");
-    }
-  });
-
-  descriptions.forEach((description, index) => {
-    if (index == curentStepper - 1) {
-      description.classList.add("text-active");
-    }
-
-    if (index == curentStepper - 1) {
-      description.classList.add("text-active");
-    }
-    if (index > curentStepper - 1) {
-      description.classList.remove("text-active");
-    }
-    if (index < curentStepper - 1) {
-      description.classList.remove("text-active");
-    }
-  });
+  for (var i = 0; i < updateTextElem.length; i++) {
+    updateTextElem[i].forEach((elem, index) => {
+      console.log(elem, index);
+      if (index == curentStepper - 1) {
+        elem.classList.add("left-active");
+      }
+      if (index > curentStepper - 1) {
+        elem.classList.remove("left-active");
+      }
+      if (index < curentStepper - 1) {
+        elem.classList.remove("left-active");
+      }
+    });
+  }
 
   posters.forEach((poster, index) => {
     if (index < curentStepper) {
@@ -96,10 +73,9 @@ function updateStepper() {
   });
 
   datesDecimales.forEach((date, index) => {
-    curentStepper == 5 ? changeCentuary() : pullbackCentuary()
+    curentStepper == 5 ? changeCentuary() : pullbackCentuary();
     if (index == curentStepper - 1) {
       date.classList.add("date-active");
-      
     }
     if (index > curentStepper - 1) {
       date.classList.remove("date-active");
@@ -109,17 +85,15 @@ function updateStepper() {
     }
 
     function changeCentuary() {
-      datesCentuary20.classList.toggle("date-active")
-      datesCentuary19.classList.remove("date-active")
+      datesCentuary20.classList.toggle("date-active");
+      datesCentuary19.classList.remove("date-active");
     }
 
     function pullbackCentuary() {
-      datesCentuary20.classList.remove("date-active")
-      datesCentuary19.classList.add("date-active")
+      datesCentuary20.classList.remove("date-active");
+      datesCentuary19.classList.add("date-active");
     }
-  
   });
-
 
   const actives = document.querySelectorAll(".active");
   if (curentStepper == nbsteps.length) {
@@ -130,7 +104,4 @@ function updateStepper() {
     nextArrow.disabled = false;
     prevArrow.disabled = false;
   }
-
 }
-
-
